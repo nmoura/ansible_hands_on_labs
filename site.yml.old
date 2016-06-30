@@ -1,0 +1,17 @@
+---
+- name: install and configure nginx
+  hosts: wordpress-server
+  become: yes
+
+  tasks:
+  - name: copy epel repository
+    copy: src=~/Desktop/epel-release-latest-7.noarch.rpm dest=/tmp
+
+  - name: install epel repository
+    yum: name=/tmp/epel-release-latest-7.noarch.rpm state=present
+
+  - name: install nginx
+    yum: name=nginx state=present
+
+  - name: start nginx
+    service: name=nginx state=started enabled=yes

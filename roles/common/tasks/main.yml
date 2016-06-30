@@ -1,0 +1,7 @@
+---
+# tasks file for common
+- name: copy epel repo
+  copy: src=~/Desktop/epel-release-latest-7.noarch.rpm dest=/tmp
+
+- name: install epel
+  yum: name=/tmp/epel-release-latest-7.noarch.rpm state=present

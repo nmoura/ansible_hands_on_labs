@@ -1,0 +1,10 @@
+---
+- name: run my roles
+  hosts: wordpress-server
+  become: yes
+
+  roles:
+  - common
+  - nginx
+  - mariadb
+  - php

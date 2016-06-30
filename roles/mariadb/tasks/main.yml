@@ -1,0 +1,25 @@
+---
+# tasks file for mariadb
+- name: install mariadb and libselinux
+  yum: name={{item}} state=installed
+  with_items:
+  - mariadb_server
+  - MySQL-python
+  - libselinux
+  - libsemanage-python
+
+- name: configure selinux to start mariadb on any port
+  seboolean: name=mysql_connect_any state=true persistent=yes
+
+- name: create mariadb configuration file
+  template: src=my.cnf.j2 dest=/etc/my.cnf
+  notify: restart mariadb
+
+- name: create mariadb log file
+  file: path=/var/log/mysqld.log state=touch owner=mysql group=mysql mode=0775
+
+- name: start mariadb service
+  service: name=mariadb state=started enabled=yes
+
+- name: insert firewalld rule
+  firewalld: port={{mysql_port}}/tcp permanent=true state=enabled immediate=yes

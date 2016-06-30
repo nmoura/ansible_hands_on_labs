@@ -1,0 +1,4 @@
+---
+# vars file for nginx
+nginx_port: 80
+server_hostname: server.example.com
