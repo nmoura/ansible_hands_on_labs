@@ -1,0 +1,160 @@
+    1  sl
+    2  ls
+    3  cd Downloads/
+    4  cd ..
+    5  ls
+    6  mkdir Development
+    7  cd Development/
+    8  ls
+    9  mkdir ansible_hands_on_labs
+   10  cd ansible_hands_on_labs/
+   11  git --global config user.name "Nilton Moura"
+   12  git config --global user.name "Nilton Moura"
+   13  git config --global user.mail "moura.nilton@gmail.com"
+   14  echo "# ansible_hands_on_labs" >> README.md
+   15  git init
+   16  git add README.md
+   17  git commit -m "first commit"
+   18  git remote add origin git@github.com:nmoura/ansible_hands_on_labs.git
+   19  git config --global user.email "moura.nilton@gmail.com"
+   20  git commit --amend --reset-author
+   21  git push -u origin master
+   22  ssh-keygen 
+   23  cat ~/.ssh/id_rsa.pub 
+   24  git push -u origin master
+   25  pwd
+   26  cd ..
+   27  ls
+   28  mv ansible_hands_on_labs/ ../Desktop/
+   29  cd ..
+   30  ls
+   31  rmdir Development/
+   32  ls
+   33  cd Desktop/
+   34  ls
+   35  ls -l
+   36  cd ansible_hands_on_labs/
+   37  ls -l
+   38  cd ..
+   39  ls -ls
+   40  mv ansible_hands_on_labs/ myProject
+   41  cd myProject/
+   42  cd ..
+   43  ls -l
+   44  vagrant up
+   45  vagrant ssh
+   46  ansible --version
+   47  cp /etc/ansible/ansible.cfg myProject/ansible.cfg
+   48  cd myProject/
+   49  ls
+   50  vim ansible.cfg 
+   51  ls ~/.ssh/
+   52  vim hsots
+   53  vim hosts
+   54  ansible all -i hosts -m ping
+   55  ansible all -i hosts -m setup
+   56  #ansible all -i host -m yum -a "name=httpd state=present" -b
+   57  history 
+   58  git status
+   59  ansible all -i host -m yum -a "name=httpd state=present" -b
+   60  cat hosts 
+   61  ansible all -i hosts -m yum -a "name=httpd state=present" -b
+   62  ansible all -i hosts -m yum -a "name=httpd state=absent" -b
+   63  vi site.yml
+   64  vim site.yml
+   65  ansible-playbook -i hosts site.yml -vvvv
+   66  vagrant ssh
+   67  mkdir roles
+   68  cd roles/
+   69  ansible-galaxy --help
+   70  ansible-galaxy init common 
+   71  ansible-galaxy init nginx
+   72  ansible-galaxy init mariadb
+   73  ansible-galaxy init php
+   74  ansible-galaxy init wordpress
+   75  ls -l
+   76  ls -l common/
+   77  ls common/tasks/
+   78  vim common/tasks/main.yml 
+   79  ls
+   80  cd ..
+   81  ls
+   82  cat site.yml 
+   83  cd roles/
+   84  vim common/tasks/main.yml 
+   85  vim nginx/tasks/main.yml 
+   86  vim nginx/handlers/main.yml 
+   87  vim ~/Desktop/myProject/README.md 
+   88  ls -l
+   89  pwd
+   90  vim nginx/tasks/main.yml 
+   91  ls -l
+   92  vim nginx/templates/default.conf
+   93  vim nginx/vars/main.yml 
+   94  ls -l
+   95  pwd
+   96  vim mariadb/tasks/main.yml 
+   97  ls -l
+   98  cat nginx/templates/default.conf 
+   99  cat nginx/handlers/main.yml 
+  100  cat nginx/defaults/main.yml 
+  101  cat nginx/vars/main.yml 
+  102  vim mariadb/tasks/main.yml 
+  103  vim mariadb/vars/main.yml 
+  104  cd ..
+  105  ls
+  106  ansible-playbook --help
+  107  history | grep playbook
+  108  cat site.yml 
+  109  cd roles/
+  110  ls -l
+  111  cd ..
+  112  ls -l
+  113  cat ansible.cfg 
+  114  ls -l
+  115  cat site.yml 
+  116  cat roles/common/tasks/main.yml 
+  117  ls -l
+  118  vim site.yml 
+  119  ls -l
+  120  ls 
+  121  cd roles/
+  122  vim php/tasks/main.yml 
+  123  cat nginx/handlers/main.yml 
+  124  vim php/handlers/main.yml 
+  125  ls -l
+  126  ansible-playbook nginx/handlers/main.yml -check
+  127  vim nginx/handlers/main.yml 
+  128  vim php/handlers/main.yml 
+  129  ansible-playbook php/handlers/main.yml 
+  130  ansible-playbook php/handlers/main.yml --check
+  131  ls -l
+  132  cat php/tasks/main.yml 
+  133  cd ..
+  134  ls
+  135  mv site.yml site.yml.old
+  136  vim site.yml
+  137  history | grep playbook
+  138  cat hosts 
+  139  cat site.yml
+  140  ansible-playbook -i hosts site.yml --check
+  141  vim roles/nginx/vars/main.yml 
+  142  ansible-playbook -i hosts site.yml --check
+  143  ls -l
+  144  vim roles/nginx/tasks/main.yml 
+  145  ansible-playbook -i hosts site.yml --check
+  146  vim roles/nginx/tasks/main.yml 
+  147  ansible-playbook -i hosts site.yml --check
+  148  vim roles/nginx/tasks/main.yml 
+  149  vagrant ssh
+  150  ls -l
+  151  pwd
+  152  git status
+  153  git add .
+  154  ls -l
+  155  git status
+  156  git commit -m "end of the class"
+  157  git push -u origin master
+  158  ls -l
+  159  pwd
+  160  history > history.txt
